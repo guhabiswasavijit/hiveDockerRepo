@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y wget procps && \
 ADD conf/hive-site.xml $HIVE_HOME/conf
 ADD conf/hive-env.sh $HIVE_HOME/conf
 ADD conf/hive-log4j2.properties $HIVE_HOME/conf
+ADD conf/beeline-log4j2.properties $HIVE_HOME/conf
+ADD conf/hive-exec-log4j2.properties $HIVE_HOME/conf
 ADD lib/mysql-connector-java-8.0.27.jar $HIVE_HOME/lib/mysql-connector-java-8.0.27.jar
 
-EXPOSE 10000
-CMD schematool -dbType mysql -initSchema &&\
-	hiveserver2 --hiveconf hive.server2.enable.doAs=false
+CMD hiveserver2 --hiveconf hive.server2.enable.doAs=false

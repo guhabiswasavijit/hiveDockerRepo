@@ -2,6 +2,28 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
    <property>
+    <name>hive.server2.session.check.interval</name>
+    <value>6h</value>
+    <description>
+      Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
+      The time should be bigger than or equal to 3000 msec.
+      The check interval for session/operation timeout, which can be disabled by setting to zero or negative value.
+    </description>
+  </property>
+  <property>
+    <name>hive.server2.close.session.on.disconnect</name>
+    <value>true</value>
+    <description>Session will be closed when connection is closed. Set this to false to have session outlive its parent connection.</description>
+  </property>
+  <property>
+    <name>hive.server2.idle.session.timeout</name>
+    <value>7d</value>
+    <description>
+      Expects a time value with unit (d/day, h/hour, m/min, s/sec, ms/msec, us/usec, ns/nsec), which is msec if not specified.
+      Session will be closed when it's not accessed for this duration, which can be disabled by setting to zero or negative value.
+    </description>
+  </property>
+   <property>
     <name>hive.metastore.db.type</name>
     <value>mysql</value>
     <description>

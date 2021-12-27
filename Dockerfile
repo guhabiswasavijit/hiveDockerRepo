@@ -23,4 +23,8 @@ ADD conf/beeline-log4j2.properties $HIVE_HOME/conf
 ADD conf/hive-exec-log4j2.properties $HIVE_HOME/conf
 ADD lib/mysql-connector-java-8.0.27.jar $HIVE_HOME/lib/mysql-connector-java-8.0.27.jar
 
-CMD hiveserver2 --hiveconf hive.server2.enable.doAs=false
+EXPOSE 10000
+EXPOSE 10001 
+EXPOSE 10002
+
+CMD hive --service hiveserver2
